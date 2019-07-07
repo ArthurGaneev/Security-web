@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Add Note')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Add Note</h1>
+            <form data-th-action="@{/notes/add}" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Note name" id="name" name="name" type="text" class="validate" required>
+                        <label for="name">Note name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="content" name="content" class="materialize-textarea" required></textarea>
+                        <label for="content">Note content</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="submit">Add</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>

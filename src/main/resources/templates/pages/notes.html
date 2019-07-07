@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='All Notes')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>All Notes</h1>
+            <ul class="collection">
+                <li class="collection-item" data-th-each="note : ${notes}">
+                    <a data-th-href="@{/notes/{id} (id=${note.id}) }">
+                        <span data-th-text="${note.name}"></span>
+                    </a>
+                </li>
+            </ul>
+            <a data-th-if="${@accountService.hasAuthority('ADD')}" data-th-href="@{/notes/add}" class="waves-effect waves-light btn">Add Note</a>
+        </div>
+    </div>
+</div>
+
+
+<div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+
+</body>
+</html>
